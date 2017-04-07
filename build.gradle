@@ -12,7 +12,6 @@ buildscript {
     }
 }
 
-
 allprojects {
     repositories {
         jcenter()
@@ -26,7 +25,6 @@ allprojects {
 }
 
 def jme3 = [v:'3.1.0-stable', g:'org.jmonkeyengine']
-
 
 project(":core") {
     apply plugin: "java"
@@ -52,6 +50,8 @@ project(":app") {
         compile "${jme3.g}:jme3-android-native:${jme3.v}"
     }
 }
+
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir
