@@ -7,3 +7,7 @@
 .externalNativeBuild
 /gradle
 
+/.idea/markdown-navigator.xml
+/.idea/modules.xml
+/.idea/runConfigurations.xml
+/.idea/vcs.xml
