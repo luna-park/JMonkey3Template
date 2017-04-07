@@ -12,11 +12,47 @@ buildscript {
     }
 }
 
+
 allprojects {
     repositories {
         jcenter()
+        maven { url "http://dl.bintray.com/jmonkeyengine/org.jmonkeyengine" }
+    }
+
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = "1.7"
+        targetCompatibility = "1.7"
     }
 }
+
+def jme3 = [v:'3.1.0-stable', g:'org.jmonkeyengine']
+
+
+project(":core") {
+    apply plugin: "java"
+    dependencies {
+        compile "${jme3.g}:jme3-core:${jme3.v}"
+    }
+}
+
+project(":desktop") {
+    apply plugin: "java"
+    dependencies {
+        compile project(":core")
+        compile "${jme3.g}:jme3-desktop:${jme3.v}"
+        compile "${jme3.g}:jme3-lwjgl:${jme3.v}"
+    }
+}
+
+project(":app") {
+    apply plugin: "android"
+    dependencies {
+        compile project(":core")
+        compile "${jme3.g}:jme3-android:${jme3.v}"
+        compile "${jme3.g}:jme3-android-native:${jme3.v}"
+    }
+}
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir
