@@ -1,12 +1,21 @@
 package org.lunapark.dev.jmonkey3template;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class MainActivity extends Activity {
+import com.jme3.app.AndroidHarness;
+
+public class MainActivity extends AndroidHarness {
+
+    public MainActivity() {
+        // Set main project class (fully qualified path)
+        appClass = Game.class.getCanonicalName();
+
+        // Change options here
+
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 }
