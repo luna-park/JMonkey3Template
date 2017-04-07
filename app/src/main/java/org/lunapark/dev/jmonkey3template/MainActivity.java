@@ -7,7 +7,7 @@ public class MainActivity extends AndroidHarness {
     public MainActivity() {
         // Set main project class (fully qualified path)
         appClass = Game.class.getCanonicalName();
-        // Change options here
+        // Options
     }
 
 }

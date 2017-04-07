@@ -4,7 +4,7 @@ package org.lunapark.dev.jmonkey3template;
  * Created by znak on 07.04.2017.
  */
 
-class DesktopLauncher {
+public class DesktopLauncher {
 
     public static void main(String[] args) {
         Game game = new Game();

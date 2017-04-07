@@ -24,18 +24,56 @@ allprojects {
     }
 }
 
+// All modules:
+//    jme3-android-native
+//    jme3-android
+//    jme3-blender
+//    jme3-bullet-native-android
+//    jme3-bullet-native
+//    jme3-bullet
+//    jme3-core
+//    jme3-desktop
+//    jme3-effects
+//    jme3-examples
+//    jme3-ios
+//    jme3-jbullet
+//    jme3-jogg
+//    jme3-jogl
+//    jme3-lwjgl
+//    jme3-lwjgl3
+//    jme3-networking
+//    jme3-niftygui
+//    jme3-plugins
+//    jme3-terrain
+
 def jme3 = [v:'3.1.0-stable', g:'org.jmonkeyengine']
 
 project(":core") {
     apply plugin: "java"
+    sourceSets.main.java.srcDirs = ["src/"]
     dependencies {
+        // Basic
         compile "${jme3.g}:jme3-core:${jme3.v}"
+
+        // Optional
+//        compile "${jme3.g}:jme3-effects:${jme3.v}"
+//        compile "${jme3.g}:jme3-plugins:${jme3.v}"
+//        compile "${jme3.g}:jme3-jogg:${jme3.v}"
+//        compile "${jme3.g}:jme3-terrain:${jme3.v}"
+//        compile "${jme3.g}:jme3-blender:${jme3.v}"
+//        compile "${jme3.g}:jme3-bullet-native:${jme3.v}"
+//        compile "${jme3.g}:jme3-networking:${jme3.v}"
+
+        // Resources
+//        compile "net.sf.sociaal:jME3-testdata:3.0.0.20130526"
     }
 }
 
 project(":desktop") {
     apply plugin: "java"
+    sourceSets.main.java.srcDirs = ["src/"]
     dependencies {
+        compile files("../app/src/main/assets")
         compile project(":core")
         compile "${jme3.g}:jme3-desktop:${jme3.v}"
         compile "${jme3.g}:jme3-lwjgl:${jme3.v}"
@@ -48,10 +86,9 @@ project(":app") {
         compile project(":core")
         compile "${jme3.g}:jme3-android:${jme3.v}"
         compile "${jme3.g}:jme3-android-native:${jme3.v}"
+//        compile "${jme3.g}:jme3-bullet-native-android:${jme3.v}"
     }
 }
-
-
 
 task clean(type: Delete) {
     delete rootProject.buildDir
